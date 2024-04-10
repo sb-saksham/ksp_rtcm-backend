@@ -20,9 +20,15 @@ class Junction(models.Model):
     lat = models.FloatField(null=True, blank=True)
     long = models.FloatField(null=True, blank=True)
 
+    def __str__(self):
+        return self.name
+
 
 class TrafficImage(models.Model):
     junction = models.ForeignKey(Junction, on_delete=models.CASCADE, related_name="traffic_images")
     # which path it is coming North South East West
     direction = models.CharField(choices=DIRECTION_CHOICES, max_length=5, null=True, blank=True)
     image = models.ImageField(upload_to=traffic_directory_path)
+
+    def __str__(self):
+        return self.junction.name + '_' + self.direction

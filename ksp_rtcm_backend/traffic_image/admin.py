@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Junction, TrafficImage
+
+admin.site.register(Junction)
+admin.site.register(TrafficImage)

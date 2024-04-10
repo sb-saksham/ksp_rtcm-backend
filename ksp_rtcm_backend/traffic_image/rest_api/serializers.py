@@ -7,4 +7,5 @@ class TrafficImageSerializer(serializers.ModelSerializer):
     image = serializers.ImageField()
 
     class Meta:
+        model = TrafficImage
         fields = ['junction', 'direction', 'image']
